@@ -1,18 +1,19 @@
+import { IRouteComponentProps } from 'umi'
 import React from 'react';
 import {Layout, Menu, Breadcrumb} from 'antd';
-import styles from './index.less';
+
+import styles from "./index.less";
 
 const { Header, Footer, Sider, Content } = Layout;
 
-export default () => {
+function BasicLayout({ children, location, route, history, match }: IRouteComponentProps) {
   return (
     <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className={styles.logo} />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="1">主页</Menu.Item>
+        <Menu.Item key="2">新闻</Menu.Item>
       </Menu>
     </Header>
     <Content className={styles.siteLayout} style={{ padding: '0 50px', marginTop: 64 }}>
@@ -24,3 +25,5 @@ export default () => {
   </Layout>
   );
 }
+
+export default BasicLayout;
