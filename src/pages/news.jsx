@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './news.less';
 import {Layout} from 'antd'
-import News from "@/components/news/news.tsx"
+import News from "./components/news/news.tsx"
 
 const {Header, Content, Footer, Sider} = Layout
 
