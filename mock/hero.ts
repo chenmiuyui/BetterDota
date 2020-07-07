@@ -1,0 +1,42 @@
+ export default{
+ 'GET /api/heros':{
+    "minjie" : [
+    {   
+        name:"sv",
+        imgSrc:"/heros/sven_sb.png"
+    },
+    {
+        name:"sv",
+        imgSrc:"/heros/earthshaker_sb.png"
+    },
+    {
+        name:"sv",
+        imgSrc:"/heros/tiny_sb.png"
+    },
+    {
+        name:"sv",
+        imgSrc:"/heros/sven_sb.png"
+    },
+    ],
+    "liliang":[
+        {
+            name:"sv",
+            imgSrc:"/heros/sven_sb.png"
+        },
+        {
+            name:"sv",
+            imgSrc:"/heros/sven_sb.png"
+        },
+    ],
+    "zhili":[
+        {
+            name:"sv",
+            imgSrc:"/heros/sven_sb.png"
+        },
+        {
+            name:"sv",
+            imgSrc:"/heros/sven_sb.png"
+        },
+    ]
+ }
+}
