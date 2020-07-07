@@ -34,6 +34,9 @@ function Foot(){
   )
 }
 function BasicLayout({ children, location, route, history, match }:IRouteComponentProps){
+  console.log({ children, location, route, history, match });
+  const s = location.pathname.startsWith.bind(location.pathname)
+  const defaultSelectedKeys = [s("/news") ? '2' : s("/hero") ? '3' : s("community") ? '4' : '1'];
   useEffect(() => {
     document.title = "BetterDota2"
   }, [])
@@ -41,10 +44,10 @@ function BasicLayout({ children, location, route, history, match }:IRouteCompone
     <Layout>
         <Header>
             <div className={styles.logo} />
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={defaultSelectedKeys}>
               <Menu.Item key="1" className={styles.nav} onClick={() => history.push("/")}>主页</Menu.Item>
               <Menu.Item key="2" className={styles.nav} onClick={() => history.push("/news")}>新闻</Menu.Item>
-              <Menu.Item key="3" className={styles.nav}>英雄</Menu.Item>
+              <Menu.Item key="3" className={styles.nav} onClick={() => history.push("/hero")}>英雄</Menu.Item>
               <Menu.Item key="4" className={styles.nav}>社区</Menu.Item>
             </Menu>
         </Header>

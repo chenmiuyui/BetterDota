@@ -4,7 +4,7 @@ import {Layout} from 'antd'
 
 const {Header, Content, Footer} = Layout
 
-type News = {id: Number, title: string, content: string, username: Number, datetime: string}
+type News = {id: Number, title: string, content: string, username: Number, datetime: string, image: string}
 type NewsProps = {news: News}
 
 export default function News(props: NewsProps){
