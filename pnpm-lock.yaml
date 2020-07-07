@@ -1,7 +1,8 @@
 dependencies:
-  '@ant-design/pro-layout': 5.0.17_react-dom@16.13.1+react@16.13.1
+  '@ant-design/pro-layout': 5.0.17_aa558fc3932ebadc4fd465aed89a27ab
   '@umijs/preset-react': 1.5.14_e71886b0a1b193dd35e5c396c2745e8d
   '@umijs/test': 3.2.7
+  antd: 4.4.0_react-dom@16.13.1+react@16.13.1
   lint-staged: 10.2.11
   prettier: 1.19.1
   react: 16.13.1
@@ -50,10 +51,11 @@ packages:
       react: 16.x
     resolution:
       integrity: sha512-245ZI40MOr5GGws+sNSiJIRRoEf/J2xvPSMgwRYf3bv8mVGQZ6XTQI/OMeV16KtiSZ3D+mBKXVYSBz2fhigOXQ==
-  /@ant-design/pro-layout/5.0.17_react-dom@16.13.1+react@16.13.1:
+  /@ant-design/pro-layout/5.0.17_aa558fc3932ebadc4fd465aed89a27ab:
     dependencies:
       '@ant-design/icons': 4.2.1_react@16.13.1
       '@umijs/route-utils': 1.0.16
+      antd: 4.4.0_react-dom@16.13.1+react@16.13.1
       classnames: 2.2.6
       hash.js: 1.1.7
       history: 4.10.1
@@ -2461,7 +2463,7 @@ packages:
       integrity: sha512-qDtWguduISeG+EObgKbImuRX3FyLrNcj3yQtY24HdYkDTGmtsmA4ZKB7Q/N+V/O0Yxep06bCotTK3jFV9KXuEA==
   /@umijs/plugin-layout/0.11.10_d0b525273dafc38fac61605ec21b7635:
     dependencies:
-      '@ant-design/pro-layout': 5.0.17_react-dom@16.13.1+react@16.13.1
+      '@ant-design/pro-layout': 5.0.17_aa558fc3932ebadc4fd465aed89a27ab
       '@umijs/plugin-initial-state': 2.2.1_umi@3.2.7
       '@umijs/plugin-locale': 0.9.0_react@16.13.1+umi@3.2.7
       '@umijs/plugin-model': 2.4.0_umi@3.2.7
@@ -13210,8 +13212,9 @@ packages:
       integrity: sha512-G5NiNLKx2+QhhvZi2yV1jjVXY50otktxkseX2hG2N/eixohOUk0AY8ZpbAxNqS9oJS/NxItCsowupy2tsXxAMw==
 specifiers:
   '@ant-design/pro-layout': ^5.0.12
-  '@umijs/preset-react': 1.x
+  '@umijs/preset-react': ~1.5.14
   '@umijs/test': ^3.2.7
+  antd: ^4.4.0
   lint-staged: ^10.0.7
   prettier: ^1.19.1
   react: ^16.12.0
