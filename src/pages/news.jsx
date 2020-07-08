@@ -35,15 +35,15 @@ class NewsList extends React.Component {
     )
   }
   render(){
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, newsList } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      window.i = this.state.newsList
+      // window.i = newsList
       return (
-        this.state.newsList.map((elem, index) => <News news={elem} key={elem.id} />)
+        newsList.map((elem, index) => <News news={elem} key={elem.id} />)
       )
     }
   }
