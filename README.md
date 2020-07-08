@@ -5,11 +5,11 @@
 Install dependencies,
 
 ```bash
-$ yarn
+$ pnpm install
 ```
 
 Start the dev server,
 
 ```bash
-$ yarn start
+$ pnpm start
 ```
