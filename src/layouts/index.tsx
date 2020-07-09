@@ -1,9 +1,9 @@
 import styles from './index.less';
 import { IRouteComponentProps } from 'umi'
-import {Layout,Menu} from 'antd'
+import {Layout, Menu, Space, Button} from 'antd'
 import { GithubOutlined } from '@ant-design/icons'
 import { DefaultFooter } from '@ant-design/pro-layout'
-import React from 'react';
+import React, {useEffect} from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 
 function Foot(){
@@ -34,19 +34,28 @@ function Foot(){
   )
 }
 function BasicLayout({ children, location, route, history, match }:IRouteComponentProps){
+  // console.log({ children, location, route, history, match });
+  const s = location.pathname.startsWith.bind(location.pathname)
+  const defaultSelectedKeys = [s("/news") ? '2' : s("/hero") ? '3' : s("community") ? '4' : '1'];
   return(
     <Layout>
-        <Header>
-            <div className={styles.logo} />
-           
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1" className={styles.nav}>主页</Menu.Item>
-            <Menu.Item key="2" className={styles.nav}>新闻</Menu.Item>
-            <Menu.Item key="3" className={styles.nav}>英雄</Menu.Item>
-            <Menu.Item key="4" className={styles.nav}>社区</Menu.Item>
-            </Menu>
+        <Header className={styles.header}>
+            <Layout>
+              <div className={styles.logo} />
+              <Menu theme="dark" mode="horizontal" defaultSelectedKeys={defaultSelectedKeys}>
+                <Menu.Item key="1" className={styles.nav} onClick={() => history.push("/")}>主页</Menu.Item>
+                <Menu.Item key="2" className={styles.nav} onClick={() => history.push("/news")}>新闻</Menu.Item>
+                <Menu.Item key="3" className={styles.nav} onClick={() => history.push("/hero")}>英雄</Menu.Item>
+                <Menu.Item key="4" className={styles.nav}>社区</Menu.Item>
+              </Menu>
+            </Layout>
+            <Button type="primary" onClick={() => history.push("/login")}>登录</Button>
         </Header>
-        {children}
+        <Content className={styles.siteLayout} style={{ padding: '0 50px', marginTop: 64 }}>
+          <div className={styles.siteLayoutBackground} style={{ padding: 24, minHeight: 380 }}>
+            { children }
+          </div>
+        </Content>
       <Footer>
           <Foot></Foot>
       </Footer>

@@ -1,6 +1,7 @@
 dependencies:
+  '@ant-design/icons': 4.2.1_react@16.13.1
   '@ant-design/pro-layout': 5.0.17_aa558fc3932ebadc4fd465aed89a27ab
-  '@umijs/preset-react': 1.5.14_e71886b0a1b193dd35e5c396c2745e8d
+  '@umijs/preset-react': 1.5.14_7f34244c750539b92f9887170e172aee
   '@umijs/test': 3.2.7
   antd: 4.4.0_react-dom@16.13.1+react@16.13.1
   lint-staged: 10.2.11
@@ -42,7 +43,7 @@ packages:
       '@babel/runtime': 7.10.4
       classnames: 2.2.6
       insert-css: 2.0.0
-      rc-util: 5.0.4
+      rc-util: 5.0.5
       react: 16.13.1
     dev: false
     engines:
@@ -2461,8 +2462,9 @@ packages:
       umi: 3.x
     resolution:
       integrity: sha512-qDtWguduISeG+EObgKbImuRX3FyLrNcj3yQtY24HdYkDTGmtsmA4ZKB7Q/N+V/O0Yxep06bCotTK3jFV9KXuEA==
-  /@umijs/plugin-layout/0.11.10_d0b525273dafc38fac61605ec21b7635:
+  /@umijs/plugin-layout/0.11.10_93eaa8d05716d618c43b9dd5c0260b7c:
     dependencies:
+      '@ant-design/icons': 4.2.1_react@16.13.1
       '@ant-design/pro-layout': 5.0.17_aa558fc3932ebadc4fd465aed89a27ab
       '@umijs/plugin-initial-state': 2.2.1_umi@3.2.7
       '@umijs/plugin-locale': 0.9.0_react@16.13.1+umi@3.2.7
@@ -2565,7 +2567,7 @@ packages:
       '@babel/core': '*'
     resolution:
       integrity: sha512-gomtPN9Fk/N457yR0/UXhekIvqX1qkvQW7oolSwOVaRNEN9smsICSd5VLWnXdPOOVsH6LZxmsybmOLv5PQ3JlA==
-  /@umijs/preset-react/1.5.14_e71886b0a1b193dd35e5c396c2745e8d:
+  /@umijs/preset-react/1.5.14_7f34244c750539b92f9887170e172aee:
     dependencies:
       '@umijs/plugin-access': 2.3.1_c87177e95edd2ef14c9d0be877c63d4e
       '@umijs/plugin-analytics': 0.2.2_umi@3.2.7
@@ -2574,7 +2576,7 @@ packages:
       '@umijs/plugin-dva': 0.7.4_9664fef9279c508a344a94036c71d61e
       '@umijs/plugin-helmet': 1.0.2_react@16.13.1+umi@3.2.7
       '@umijs/plugin-initial-state': 2.2.1_umi@3.2.7
-      '@umijs/plugin-layout': 0.11.10_d0b525273dafc38fac61605ec21b7635
+      '@umijs/plugin-layout': 0.11.10_93eaa8d05716d618c43b9dd5c0260b7c
       '@umijs/plugin-locale': 0.9.0_react@16.13.1+umi@3.2.7
       '@umijs/plugin-model': 2.4.0_umi@3.2.7
       '@umijs/plugin-request': 2.4.0_react@16.13.1+umi@3.2.7
@@ -2582,6 +2584,7 @@ packages:
       umi: 3.2.7
     dev: false
     peerDependencies:
+      '@ant-design/icons': '*'
       '@ant-design/pro-layout': '*'
       react: '*'
       react-dom: '*'
@@ -5173,7 +5176,7 @@ packages:
       has-symbols: 1.0.1
       is-callable: 1.2.0
       is-regex: 1.1.0
-      object-inspect: 1.8.0
+      object-inspect: 1.7.0
       object-keys: 1.1.1
       object.assign: 4.1.0
       string.prototype.trimend: 1.0.1
@@ -8655,10 +8658,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-fn2Fi3gb18mRpBupde04EnVOmYw=
-  /object-inspect/1.8.0:
+  /object-inspect/1.7.0:
     dev: false
     resolution:
-      integrity: sha512-jLdtEOB112fORuypAyl/50VRVIBIdVQOSUUGQHzJ4xBSbit81zRarz7GThkEFZy1RceYrWYcPcBFPQwHyAc1gA==
+      integrity: sha512-a7pEHdh1xKIAgTySUGgLMx/xwDZskN1Ud6egYYN3EdRW4ZMPNEDUTF+hwy2LUC+Bl+SyLXANnwz/jyh/qutKUw==
   /object-keys/1.1.1:
     dev: false
     engines:
@@ -10257,6 +10260,7 @@ packages:
       rc-trigger: 4.3.0_react-dom@16.13.1+react@16.13.1
       rc-util: 5.0.4
       react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
     dev: false
     peerDependencies:
       react: '*'
@@ -10591,6 +10595,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-cd19RCrE0DJH6UcJ9+V3eaXA/5sNWyVKOKkWl8ZM2OqgNzVb8fv0obf/TkuvSN43tmTsgqY8k7OqpFYHhmef8g==
+  /rc-util/5.0.5:
+    dependencies:
+      react-is: 16.13.1
+      shallowequal: 1.1.0
+    dev: false
+    resolution:
+      integrity: sha512-zLIdNm6qz+hQbB5T1fmzHFFgPuRl3uB2eS2iLR/mewUWvgC3l7NzRYRVlHoCEEFVUkKEEsHuJXG1J52FInl5lA==
   /rc-virtual-list/1.1.5_react-dom@16.13.1+react@16.13.1:
     dependencies:
       classnames: 2.2.6
@@ -13211,6 +13222,7 @@ packages:
     resolution:
       integrity: sha512-G5NiNLKx2+QhhvZi2yV1jjVXY50otktxkseX2hG2N/eixohOUk0AY8ZpbAxNqS9oJS/NxItCsowupy2tsXxAMw==
 specifiers:
+  '@ant-design/icons': ^4.2.1
   '@ant-design/pro-layout': ^5.0.12
   '@umijs/preset-react': ~1.5.14
   '@umijs/test': ^3.2.7

@@ -1,8 +1,11 @@
 import { defineConfig } from 'umi';
 
-export default defineConfig({
+export default {
   nodeModulesTransform: {
     type: 'none',
   },
-  // publicPath:'/'
-});
+  publicPath: '/betterdota/',
+  base: '/betterdota',
+  title: 'Better Dota'
+  // mock: false
+}
