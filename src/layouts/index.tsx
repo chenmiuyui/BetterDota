@@ -54,10 +54,4 @@ function BasicLayout({ children, location, route, history, match }:IRouteCompone
   )
 }
 
-// function BasicLayout({ children, location, route, history, match }:IRouteComponentProps) {
-//     return (
-//       children
-//     )
-// }
-
 export default BasicLayout;

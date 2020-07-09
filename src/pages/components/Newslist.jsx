@@ -49,7 +49,7 @@ export default function Newslist(props){
     if(error){
       console.log(error);
     }else{
-      return(  
+      return(
         <Tabs defaultActiveKey="1">
         <TabPane tab="综合" key="1">
           <ListItems news={news.zonghe}/>

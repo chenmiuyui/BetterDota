@@ -5,57 +5,17 @@ const OPTIONS = ['打野', '线上', '发育', '辅助']
 const Tag = [
     {
         name:"力量",
-        tag:"liliang"
+        attribute:0
     }
     ,{
         name:"智力",
-        tag:"zhili"
+        attribute:1
     },
     {
         name:"力量",
-        tag:"minjie"
+        attribute:2
     }
 ]
-const hero = {
-    "minjie" : [
-        {   
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-        {
-            name:"sv",
-            imgSrc:"/heros/earthshaker_sb.png"
-        },
-        {
-            name:"sv",
-            imgSrc:"/heros/tiny_sb.png"
-        },
-        {
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-    ],
-    "liliang":[
-        {
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-        {
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-    ],
-    "zhili":[
-        {
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-        {
-            name:"sv",
-            imgSrc:"/heros/sven_sb.png"
-        },
-    ]
-}
 class SelectWithHiddenSelectedOptions extends React.Component {
   state = {
     selectedItems: [],
@@ -85,64 +45,114 @@ class SelectWithHiddenSelectedOptions extends React.Component {
     );
   }
 }
-function HeroList(props){
-    return(
-         <div style={{display:"flex",flexFlow:"row"}}>
-            <div className={styles.content}>
-                <Row gutter={16}>
-                    {   
-                        console.log(1),
-                        console.log(props.category)
-                        // props.category.map(intro=>(
-                        //     <Col className="gutter-row" span={6} onClick={introduce}>
-                        //         <img  src={require(`@/assets${intro.imgSrc}`)} alt=""/>
-                        //     </Col>
-                        // ))
-                    }
-                </Row>  
-            </div>
-         </div>
-    )
-}
+// function HeroList(props){
+//     return(
+//          <div style={{display:"flex",flexFlow:"row"}}>
+//             {
+//                     <div className={styles.content} key={item.Tag}>{item.name}
+//                         <Row gutter={16}>
+//                             {
+//                                 console.log(items.liliang),
+//                                 props.hero.map(intro=>(
+//                                     <Col className="gutter-row" span={6} onClick={introduce}>
+//                                         <img  src={require(`@/assets${intro.imgSrc}`)} alt=""/>
+//                                     </Col>
+//                                 ))
+//                             }
+//                         </Row>  
+//                     </div>
+//          }
+//          </div>
+//     )
+// }
 
 export default function Hero(){
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [heros, setHeros] = useState([]);
+  const [heroes, setHeroes] = useState([]);
+  const [infomation,setInfo] = useState({});
+  const [infoIsLoaded,setInfoLoaded] = useState(false);
 
-
+  function moreInfo(e){
+    console.log(e[0])
+    // setInfo(heroes[1])
+    fetch("http://127.0.0.1/BetterDota/hero?id="+e[0])
+    .then(res => res.json())
+    .then(
+      (result) => {
+        setInfo(result)
+        window.i = result
+        setInfoLoaded(true)
+      },
+    )
+    return(
+      <p>information[0].position</p>
+    )
+  }
+  
   useEffect(() => {
-    fetch("/api/users")
+    fetch("http://127.0.0.1/BetterDota/allheroes")
       .then(res => res.json())
       .then(
         (result) => {
+          setHeroes(result);
+          window.i = result;
           setIsLoaded(true);
-          setHeros(result);
-          window.i = result
         },
         (error) => {
-          setIsLoaded(true);
           setError(error);
+          setIsLoaded(true);
         }
       )
   }, [])
     if (error) {
-    return <div>Error: {error.message}</div>;
+        return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-    return <div>Loading...</div>;
-}else{
-    return(
-        <Layout className={styles.main}>
+        return <div>Loading...</div>;
+    }else{
+        return(
+            <Layout className={styles.main}>
+                <div style={{display:"flex",flexFlow:"row",justifyContent:"center"}}>
+                    <SelectWithHiddenSelectedOptions/>
+                    <SelectWithHiddenSelectedOptions/>
+                    <SelectWithHiddenSelectedOptions/>
+                </div>
             <div style={{display:"flex",flexFlow:"row",justifyContent:"center"}}>
-                <SelectWithHiddenSelectedOptions/>
-                <SelectWithHiddenSelectedOptions/>
-                <SelectWithHiddenSelectedOptions/>
-            </div>
-            <HeroList category={heros.zonghe}></HeroList>
-            <HeroList category={heros.zonghe}></HeroList>
-            <HeroList category={heros.zonghe}></HeroList>
-            <div className={styles.showHero}>
-                这是介绍
+            {
+                Tag.map(item=>(
+                    <div className={styles.content} >{item.name}
+                        <Row gutter={16}>
+                            {   
+                                heroes.map(intro=>
+                                  { 
+                                    if(item.attribute == intro.attribute)
+                                    return(
+                                      <Col span={6} key={intro.name}>
+                                        <img src={intro.image} onClick={moreInfo.bind(this,intro.heroid)} alt="" key={intro.name}/>
+                                      </Col>
+                                    )
+                                  },
+                                )
+                            }
+                        </Row>  
+                    </div>
+                ))
+            } 
+              </div>
+              <div className={styles.showHero} >
+              {
+                  infoIsLoaded && (
+                    <p>fasfasfasf</p>,
+                    infomation.map(skill => {
+                      {
+                        window.a = skill
+                      }
+                      <p>fasfasfasf</p>,
+                      <p>{skill[0]}</p>,
+                      <img src={`/static${skill.image}`}/>
+                    })
+                   )
+              }
             </div>
         </Layout>
         
