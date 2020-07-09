@@ -8,11 +8,11 @@ const Tag = [
         attribute:0
     }
     ,{
-        name:"智力",
+        name:"敏捷",
         attribute:1
     },
     {
-        name:"力量",
+        name:"智力",
         attribute:2
     }
 ]
@@ -45,26 +45,6 @@ class SelectWithHiddenSelectedOptions extends React.Component {
     );
   }
 }
-// function HeroList(props){
-//     return(
-//          <div style={{display:"flex",flexFlow:"row"}}>
-//             {
-//                     <div className={styles.content} key={item.Tag}>{item.name}
-//                         <Row gutter={16}>
-//                             {
-//                                 console.log(items.liliang),
-//                                 props.hero.map(intro=>(
-//                                     <Col className="gutter-row" span={6} onClick={introduce}>
-//                                         <img  src={require(`@/assets${intro.imgSrc}`)} alt=""/>
-//                                     </Col>
-//                                 ))
-//                             }
-//                         </Row>  
-//                     </div>
-//          }
-//          </div>
-//     )
-// }
 
 export default function Hero(){
   const [error, setError] = useState(null);
@@ -74,9 +54,9 @@ export default function Hero(){
   const [infoIsLoaded,setInfoLoaded] = useState(false);
 
   function moreInfo(e){
-    console.log(e[0])
+    console.log(e)
     // setInfo(heroes[1])
-    fetch("http://127.0.0.1/BetterDota/hero?id="+e[0])
+    fetch("http://127.0.0.1/BetterDota/hero?id="+e)
     .then(res => res.json())
     .then(
       (result) => {
@@ -128,7 +108,7 @@ export default function Hero(){
                                     if(item.attribute == intro.attribute)
                                     return(
                                       <Col span={6} key={intro.name}>
-                                        <img src={intro.image} onClick={moreInfo.bind(this,intro.heroid)} alt="" key={intro.name}/>
+                                        <img src={"/static/heros/"+intro.image} onClick={moreInfo.bind(this,intro.heroid)} alt="" key={intro.heroid} style={{width:"40px"}}/>
                                       </Col>
                                     )
                                   },
@@ -142,16 +122,36 @@ export default function Hero(){
               <div className={styles.showHero} >
               {
                   infoIsLoaded && (
-                    <p>fasfasfasf</p>,
-                    infomation.map(skill => {
-                      {
-                        window.a = skill
+                <>
+                    {heroes.map(hero=>{
+                      window.i = hero;
+                      
+                      if(hero.heroid == infomation[0].heroid){
+                        // console.log(hero.heroid == infomation[0].heroid)
+                        return(
+                          <>
+                            <p>{hero.name}</p>
+                            <img src={"/static/heros/"+hero.image}/>,
+                          </>
+                        )
                       }
-                      <p>fasfasfasf</p>,
-                      <p>{skill[0]}</p>,
-                      <img src={`/static${skill.image}`}/>
-                    })
+                    })}
+                    
+                    {infomation.map(skill => {
+                      {
+                        // window.a = skill  
+                        return(
+                          <>
+                            <div style={{marginRight:"40px"}}>技能{skill.position}:{skill.name}</div>
+                            <span>{skill.description}</span>
+                          </>
+                        )
+                      }
+                    
+                    })}
+                    </>
                    )
+                  
               }
             </div>
         </Layout>
