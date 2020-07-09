@@ -97,7 +97,7 @@ export default function Hero(){
                     <SelectWithHiddenSelectedOptions/>
                     <SelectWithHiddenSelectedOptions/>
                 </div>
-            <div style={{display:"flex",flexFlow:"row",justifyContent:"center"}}>
+            <div style={{display:"flex",flexFlow:"row",justifyContent:"center",marginTop:"40px"}}>
             {
                 Tag.map(item=>(
                     <div className={styles.content} >{item.name}
@@ -108,7 +108,7 @@ export default function Hero(){
                                     if(item.attribute == intro.attribute)
                                     return(
                                       <Col span={6} key={intro.name}>
-                                        <img src={"/static/heros/"+intro.image} onClick={moreInfo.bind(this,intro.heroid)} alt="" key={intro.heroid} style={{width:"40px"}}/>
+                                        <img src={"/static/heros/"+intro.image} onClick={moreInfo.bind(this,intro.heroid)} alt="" key={intro.heroid} style={{width:"70px"}}/>
                                       </Col>
                                     )
                                   },
@@ -122,34 +122,35 @@ export default function Hero(){
               <div className={styles.showHero} >
               {
                   infoIsLoaded && (
-                <>
+                <div style={{display:"flex"}}>
                     {heroes.map(hero=>{
-                      window.i = hero;
+                      // window.i = hero;
                       
                       if(hero.heroid == infomation[0].heroid){
                         // console.log(hero.heroid == infomation[0].heroid)
                         return(
-                          <>
-                            <p>{hero.name}</p>
+                          <div style={{marginBottom:"5px",marginRight:"20px"}}>
+                            <h1>{hero.name}</h1>
                             <img src={"/static/heros/"+hero.image}/>,
-                          </>
+                          </div>
                         )
                       }
                     })}
-                    
+                    <div style={{display:"flex",flexFlow:"column"}}>
                     {infomation.map(skill => {
                       {
                         // window.a = skill  
                         return(
-                          <>
-                            <div style={{marginRight:"40px"}}>技能{skill.position}:{skill.name}</div>
+                          <div style={{display:"block"}}>
+                            <div style={{marginRight:"40px"}}><h3>{skill.name}:</h3></div>
                             <span>{skill.description}</span>
-                          </>
+                          </div>
                         )
                       }
                     
                     })}
-                    </>
+                    </div>
+                    </div>
                    )
                   
               }

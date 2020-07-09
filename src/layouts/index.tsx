@@ -51,7 +51,7 @@ function BasicLayout({ children, location, route, history, match }:IRouteCompone
             </Layout>
             <Button type="primary" onClick={() => history.push("/login")}>登录</Button>
         </Header>
-        <Content className={styles.siteLayout} style={{ padding: '0 50px', marginTop: 64 }}>
+        <Content className={styles.siteLayout} style={{  }}>
           <div className={styles.siteLayoutBackground} style={{ padding: 24, minHeight: 380 }}>
             { children }
           </div>
