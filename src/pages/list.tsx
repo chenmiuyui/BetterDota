@@ -28,7 +28,7 @@ export default () => {
   const [insertVisible, setInsertVisible] = useState(false)
 
   useEffect(() => {
-    fetch("//localhost/betterdota/api/news/getall")
+    fetch("/api/news/getall")
     .then(res => res.json())
     .then(
       (result) => {
@@ -45,7 +45,7 @@ export default () => {
   }, [])
 
   const refresh = () => {
-    fetch("//localhost/betterdota/api/news/getall")
+    fetch("/api/news/getall")
     .then(res => res.json())
     .then(
       (result) => {
@@ -77,7 +77,7 @@ export default () => {
   const handleOk = e => {
     form.validateFields()
     .then(values => {
-      fetch("//localhost/betterdota/api/news/update", {
+      fetch("/api/news/update", {
         method: "POST",
         body: JSON.stringify(Object.assign({}, values, {id: news.id}))
       }).then(res => res.json())
@@ -100,7 +100,7 @@ export default () => {
   };
   
   const onFinish = (values: any) => {
-    fetch("//localhost/betterdota/api/news/update", {
+    fetch("/api/news/update", {
       method: "POST",
       body: JSON.stringify(Object.assign({}, values, {id: 9}))
     }).then(res => res.json())
@@ -214,7 +214,7 @@ export default () => {
           title="确定删除么？"
           visible={deleteVisible}
           onOk={() => {
-            fetch("//localhost/betterdota/api/news/delete", {
+            fetch("/api/news/delete", {
               method: "POST",
               body: JSON.stringify({id: news.id})
             }).then(res => res.json())
@@ -222,7 +222,7 @@ export default () => {
               if(result.success){
                 message.info("删除成功！")
                 setDeleteVisible(false);
-                fetch("//localhost/betterdota/api/news/getall")
+                fetch("/api/news/getall")
                 .then(res => res.json())
                 .then(
                   (result) => {

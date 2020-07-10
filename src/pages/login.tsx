@@ -16,7 +16,7 @@ export default () => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    fetch("//localhost/betterdota/api/login", {
+    fetch("/api/login", {
       method: "POST",
       body: JSON.stringify(values)
     }).then(res => res.json())

@@ -16,7 +16,7 @@ class NewsList extends React.Component {
   }
   componentDidMount(){
     // fetch("/api/news")
-    fetch("//localhost/betterdota/api/news/getall")
+    fetch("/api/news/getall")
     .then(res => res.json())
     .then(
       (result) => {

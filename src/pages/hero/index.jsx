@@ -56,7 +56,7 @@ export default function Hero(){
   function moreInfo(e){
     console.log(e)
     // setInfo(heroes[1])
-    fetch("http://127.0.0.1/BetterDota/hero?id="+e)
+    fetch("/requesthero?id="+e)
     .then(res => res.json())
     .then(
       (result) => {
@@ -71,7 +71,7 @@ export default function Hero(){
   }
   
   useEffect(() => {
-    fetch("http://127.0.0.1/BetterDota/allheroes")
+    fetch("/allheroes")
       .then(res => res.json())
       .then(
         (result) => {

@@ -35,17 +35,17 @@ function ListItems(props){
 export default function Newslist(props){
     const [news,setNews] = useState([]);
     const [error,setError] = useState(null)
-    useEffect(() => {
-    fetch("/api/users")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        setNews(result);
-        console.log(result)
-      },
-      (error) => setError(error)
-    )
-    },[])
+    // useEffect(() => {
+    // fetch("/api/users")
+    // .then(res => res.json())
+    // .then(
+    //   (result) => {
+    //     setNews(result);
+    //     console.log(result)
+    //   },
+    //   (error) => setError(error)
+    // )
+    // },[])
     if(error){
       console.log(error);
     }else{

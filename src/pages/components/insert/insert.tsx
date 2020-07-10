@@ -29,7 +29,7 @@ export default (props: any) => {
   };
 
   const onFinish = (values: any) => {
-    fetch("//localhost/betterdota/api/news/insert", {
+    fetch("/api/news/insert", {
       method: "POST",
       body: JSON.stringify(Object.assign({}, values, {userid: 1}))
     }).then(res => res.json())

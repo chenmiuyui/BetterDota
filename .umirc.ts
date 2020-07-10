@@ -6,6 +6,7 @@ export default {
   },
   // publicPath: '/betterdota/',
   // base: '/betterdota',
-  title: 'Better Dota'
-  // mock: false
+  title: 'Better Dota',
+  exportStatic: {},
+  // mock: false,
 }
